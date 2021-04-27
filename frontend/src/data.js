@@ -1,4 +1,4 @@
-const data = {
+export const data = {
     products: [
         {
             _id: "1",
