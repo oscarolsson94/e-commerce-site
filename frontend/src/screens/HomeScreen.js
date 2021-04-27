@@ -30,7 +30,7 @@ const HomeScreen = () => {
         <div>
             {loading ? (<LoadingBox />)
             :
-            error ? (<MessageBox>{error}</MessageBox>)
+            error ? (<MessageBox variant="danger">{error}</MessageBox>)
             :
             (<div className="row center">
                 {
