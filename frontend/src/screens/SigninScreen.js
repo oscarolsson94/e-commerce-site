@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function SigninScreen() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const submitHandler = (e) => {
+    e.preventDefault();
+    // TODO: sign in action
+  };
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
