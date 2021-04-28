@@ -9,6 +9,9 @@ const CartScreen = (props) => {
   return (
     <div>
       <h1>Cart Screen</h1>
+      <p>
+        ADD TO CART : ProductID: {productId} Qty: {qty}
+      </p>
     </div>
   );
 };
