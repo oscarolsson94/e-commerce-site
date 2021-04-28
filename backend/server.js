@@ -5,8 +5,9 @@ import userRouter from "./routers/userRouter.js";
 
 const app = express();
 
-mongoose.connect("mongodb://localhost/ecommerce", {
-  //mongodb connection string - change to live DB later
+const DB_URL = process.env.DB_URL;
+
+mongoose.connect(DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
