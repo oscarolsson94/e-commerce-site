@@ -20,6 +20,10 @@ const CartScreen = (props) => {
     }
   }, [dispatch, productId, qty]);
 
+  const removeFromCartHandler = (id) => {
+    // delete action
+  };
+
   return (
     <div className="row top">
       <div className="col-2">
