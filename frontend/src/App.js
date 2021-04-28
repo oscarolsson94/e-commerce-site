@@ -29,7 +29,9 @@ function App() {
               )}
             </Link>
             {userInfo ? (
-              <Link to="#">{userInfo.name}</Link>
+              <Link to="#">
+                {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
+              </Link>
             ) : (
               [<Link to="/signin">Sign In</Link>]
             )}
