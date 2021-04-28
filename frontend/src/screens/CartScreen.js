@@ -75,6 +75,18 @@ const CartScreen = (props) => {
           </ul>
         )}
       </div>
+      <div className="col-1">
+        <div className="card card-body">
+          <ul>
+            <li>
+              <h2>
+                Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
+                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+              </h2>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
