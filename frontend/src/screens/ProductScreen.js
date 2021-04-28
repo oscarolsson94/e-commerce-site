@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Rating from "../components/Rating";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { detailsProduct } from "../actions/productActions";
 
 const ProductScreen = (props) => {
   const dispatch = useDispatch();
@@ -67,9 +68,24 @@ const ProductScreen = (props) => {
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <button className="primary block">Add to Cart</button>
-                  </li>
+                  {product.countInStock > 0 && (
+                    <>
+                      <li>
+                        <div className="row">
+                          <div>Qty</div>
+                          <div>
+                            <select
+                              value={qty}
+                              onChange={(e) => setQty(e.target.value)}
+                            ></select>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <button className="primary block">Add to Cart</button>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
