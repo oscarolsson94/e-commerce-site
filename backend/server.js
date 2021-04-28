@@ -5,13 +5,18 @@ import userRouter from "./routers/userRouter.js";
 
 const app = express();
 
-const DB_URL = process.env.DB_URL;
+// const DB_URL = process.env.DB_URL;
 
-mongoose.connect(DB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+//move to dotenv later
+mongoose.connect(
+  "mongodb+srv://Oscar:test123@cluster0.wskmv.mongodb.net/ecommerce?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  }
+);
+
 //get all products
 app.get("/api/products", (req, res) => {
   res.send(data.products);
@@ -30,6 +35,11 @@ app.use("/api/users", userRouter);
 
 app.get("/", (req, res) => {
   res.send("Server is ready");
+});
+
+//catches errors from functions wrapped in expressAsyncHandler
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
 });
 
 const port = process.env.PORT || 5000;
