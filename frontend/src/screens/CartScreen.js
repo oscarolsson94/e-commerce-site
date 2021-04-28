@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import MessageBox from "../components/MessageBox";
 import { Link } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const CartScreen = (props) => {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    // delete action
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
@@ -92,7 +92,7 @@ const CartScreen = (props) => {
                 type="button"
                 onClick={checkoutHandler}
                 className="primary block"
-                disabled={cartItems.length === 9}
+                disabled={cartItems.length === 0}
               >
                 Proceed to Checkout
               </button>
