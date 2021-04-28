@@ -5,11 +5,10 @@ import userRouter from "./routers/userRouter.js";
 
 const app = express();
 
-// const DB_URL = process.env.DB_URL;
-
 //move to dotenv later
 mongoose.connect(
-  "mongodb+srv://Oscar:test123@cluster0.wskmv.mongodb.net/ecommerce?retryWrites=true&w=majority",
+  process.env.MONGODB_URL ||
+    "mongodb+srv://Oscar:test123@cluster0.wskmv.mongodb.net/ecommerce?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
