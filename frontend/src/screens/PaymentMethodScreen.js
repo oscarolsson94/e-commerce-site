@@ -1,14 +1,19 @@
 import e from "express";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { savePaymentMethod } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 
-const [paymentMethod, setPaymentMethod] = useState("");
+const PaymentMethodScreen = (props) => {
+  const [paymentMethod, setPaymentMethod] = useState("PayPal");
+  const dispatch = useDispatch();
 
-const submitHandler = () => {
-  e.preventDefault();
-};
+  const submitHandler = () => {
+    e.preventDefault();
+    dispatch(savePaymentMethod(paymentMethod));
+    props.history.push("/placeorder");
+  };
 
-const PaymentMethodScreen = () => {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 />;
