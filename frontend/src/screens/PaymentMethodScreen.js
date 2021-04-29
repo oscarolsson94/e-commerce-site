@@ -19,7 +19,7 @@ const PaymentMethodScreen = (props) => {
       <CheckoutSteps step1 step2 step3 />;
       <form onSubmit={submitHandler} className="form">
         <div>
-          <h1>Payment</h1>
+          <h1>Payment Method</h1>
         </div>
         <div>
           <div>
@@ -43,7 +43,6 @@ const PaymentMethodScreen = (props) => {
               value="Stripe"
               name="paymentMethod"
               required
-              checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
             <label htmlFor="stripe">Stripe</label>
