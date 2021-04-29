@@ -1,8 +1,24 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CheckoutSteps from "../components/CheckoutSteps";
 
 export default function PlaceOrderScreen(props) {
+  const cart = useSelector((state) => state.cart);
+  if (!cart.paymentMethod) {
+    props.history.push("/payment");
+  }
+  const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12 - rounds to 2 decimals
+  cart.itemsPrice = toPrice(
+    cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
+  );
+  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
+  cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+
+  const placeOrderHandler = () => {
+    // TODO: dispatch place order action
+  };
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
