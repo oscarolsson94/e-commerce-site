@@ -8,21 +8,9 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 const OrderScreen = (props) => {
-  const cart = useSelector((state) => state.cart);
-  if (!cart.paymentMethod) {
-    props.history.push("/payment");
-  }
-
-  const orderCreate = useSelector((state) => state.orderCreate);
-  const { loading, success, error, order } = orderCreate;
+  const orderId = props.match.params.id;
 
   const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12 - rounds to 2 decimals
-  cart.itemsPrice = toPrice(
-    cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
-  );
-  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
-  cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
   const dispatch = useDispatch();
 
@@ -31,10 +19,7 @@ const OrderScreen = (props) => {
   };
 
   useEffect(() => {
-    if (success) {
-      props.history.push(`/order/${order._id}`);
-      dispatch({ type: ORDER_CREATE_RESET });
-    }
+    dispatch(detailsOrder(orderId));
   }, [success, dispatch, props.history, order]);
 
   return (
