@@ -35,7 +35,7 @@ const OrderScreen = (props) => {
       props.history.push(`/order/${order._id}`);
       dispatch({ type: ORDER_CREATE_RESET });
     }
-  }, [success, dispatch, order]);
+  }, [success, dispatch, props.history, order]);
 
   return (
     <div>
