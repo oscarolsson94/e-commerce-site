@@ -23,7 +23,7 @@ export const orderCreateReducer = (state = {}, action) => {
   }
 };
 
-export const orderDetailsRecuder = (
+export const orderDetailsReducer = (
   state = { loading: true, order: {} },
   action
 ) => {
