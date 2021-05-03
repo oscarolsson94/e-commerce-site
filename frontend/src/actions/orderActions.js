@@ -30,3 +30,5 @@ export const createOrder = (order) => async (dispatch, getState) => {
     });
   }
 };
+
+export const detailsOrder = (orderId) => (dispatch, getState) => {};

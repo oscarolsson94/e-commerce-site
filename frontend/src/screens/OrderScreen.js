@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { createOrder } from "../actions/orderActions";
 import CheckoutSteps from "../components/CheckoutSteps";
-import { ORDER_CREATE_RESET } from "../constants/orderConstants";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 const OrderScreen = (props) => {
   const orderId = props.match.params.id;
-
-  const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12 - rounds to 2 decimals
 
   const dispatch = useDispatch();
 
@@ -20,7 +17,7 @@ const OrderScreen = (props) => {
 
   useEffect(() => {
     dispatch(detailsOrder(orderId));
-  }, [success, dispatch, props.history, order]);
+  }, [dispatch, orderId]);
 
   return (
     <div>
