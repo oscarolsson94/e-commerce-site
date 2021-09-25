@@ -57,6 +57,10 @@ orderRouter.put(
         update_time: req.body.update_time,
         email_address: req.body.email_address,
       };
+      const updatedOrder = await order.save();
+      res.send({ message: "Order paid", order: updatedOrder });
+    } else {
+      res.status(404).send({ message: "Order Not Found" });
     }
   })
 );
