@@ -50,7 +50,9 @@ export default function OrderHistoryScreen(props) {
                     onClick={() => {
                       props.history.push(`/order/${order._id}`);
                     }}
-                  ></button>
+                  >
+                    Details
+                  </button>
                 </td>
               </tr>
             ))}
