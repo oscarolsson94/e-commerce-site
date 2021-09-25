@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import LoadingBox from "../components/LoadingBox";
-import LoadingBox from "../components/MessageBox";
+import MessageBox from "../components/MessageBox";
 
 export default function OrderHistoryScreen(props) {
   const myOrderList = useSelector((state) => state.myOrderList);
