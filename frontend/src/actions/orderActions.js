@@ -70,7 +70,7 @@ export const payOrder =
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
-      dispatch({ type: ORDER_PAY_SUCCESS });
+      dispatch({ type: ORDER_PAY_SUCCESS, payload: data });
     } catch (error) {
       const message =
         error.response && error.response.data.message
