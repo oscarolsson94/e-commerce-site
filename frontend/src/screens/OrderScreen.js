@@ -24,8 +24,18 @@ export default function OrderScreen(props) {
       };
       document.body.appendChild(script);
     };
-    dispatch(detailsOrder(orderId));
-  }, [dispatch, orderId]);
+    if (!order) {
+      dispatch(detailsOrder(orderId));
+    } else {
+      if (!order.isPaid) {
+        if (!window.paypal) {
+          addPayPalScript();
+        } else {
+          setSdkReady(true);
+        }
+      }
+    }
+  }, [dispatch, order, orderId, sdkReady]);
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
