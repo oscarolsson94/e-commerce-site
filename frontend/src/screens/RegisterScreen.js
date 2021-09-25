@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { register } from "../actions/userActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
-const RegisterScreen = (props) => {
+export default function RegisterScreen(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const dispatch = useDispatch();
 
   const redirect = props.location.search
     ? props.location.search.split("=")[1]
@@ -20,21 +18,20 @@ const RegisterScreen = (props) => {
   const userRegister = useSelector((state) => state.userRegister);
   const { userInfo, loading, error } = userRegister;
 
+  const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      alert("Password and confirm password are not match");
     } else {
       dispatch(register(name, email, password));
     }
   };
-
   useEffect(() => {
     if (userInfo) {
       props.history.push(redirect);
     }
-  }, [props.history, userInfo, redirect]);
-
+  }, [props.history, redirect, userInfo]);
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
@@ -78,7 +75,7 @@ const RegisterScreen = (props) => {
           <input
             type="password"
             id="confirmPassword"
-            placeholder="Confirm your password"
+            placeholder="Enter confirm password"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></input>
@@ -92,13 +89,11 @@ const RegisterScreen = (props) => {
         <div>
           <label />
           <div>
-            Already registered an account?{" "}
-            <Link to={`/signin?redirect=${redirect}`}>Sign in</Link>
+            Already have an account?{" "}
+            <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
           </div>
         </div>
       </form>
     </div>
   );
-};
-
-export default RegisterScreen;
+}

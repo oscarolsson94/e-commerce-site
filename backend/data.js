@@ -1,6 +1,6 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
-export const data = {
+const data = {
   users: [
     {
       name: "Oscar",
@@ -17,7 +17,7 @@ export const data = {
   ],
   products: [
     {
-      name: "Nike Slim Shirt",
+      name: "Nike Shirt",
       category: "Shirts",
       image: "/images/p1.jpg",
       price: 120,
@@ -28,7 +28,7 @@ export const data = {
       description: "high quality product",
     },
     {
-      name: "Adidas Fit Shirt",
+      name: "Adidas Shirt",
       category: "Shirts",
       image: "/images/p2.jpg",
       price: 100,
@@ -39,7 +39,7 @@ export const data = {
       description: "high quality product",
     },
     {
-      name: "Lacoste Free Shirt",
+      name: "Lacoste Shirt",
       category: "Shirts",
       image: "/images/p3.jpg",
       price: 220,
@@ -50,7 +50,7 @@ export const data = {
       description: "high quality product",
     },
     {
-      name: "Nike Slim Pant",
+      name: "Nike Pant",
       category: "Pants",
       image: "/images/p4.jpg",
       price: 78,
@@ -61,7 +61,7 @@ export const data = {
       description: "high quality product",
     },
     {
-      name: "Puma Slim Pant",
+      name: "Puma Pant",
       category: "Pants",
       image: "/images/p5.jpg",
       price: 65,
@@ -72,7 +72,7 @@ export const data = {
       description: "high quality product",
     },
     {
-      name: "Adidas Fit Pant",
+      name: "Adidas Pant",
       category: "Pants",
       image: "/images/p6.jpg",
       price: 139,
@@ -84,3 +84,4 @@ export const data = {
     },
   ],
 };
+export default data;

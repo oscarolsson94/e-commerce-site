@@ -5,17 +5,14 @@ import { detailsOrder } from "../actions/orderActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
-const OrderScreen = (props) => {
+export default function OrderScreen(props) {
   const orderId = props.match.params.id;
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(detailsOrder(orderId));
   }, [dispatch, orderId]);
-
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
@@ -53,7 +50,7 @@ const OrderScreen = (props) => {
                 </p>
                 {order.isPaid ? (
                   <MessageBox variant="success">
-                    Delivered at {order.paidAt}
+                    Paid at {order.paidAt}
                   </MessageBox>
                 ) : (
                   <MessageBox variant="danger">Not Paid</MessageBox>
@@ -131,6 +128,4 @@ const OrderScreen = (props) => {
       </div>
     </div>
   );
-};
-
-export default OrderScreen;
+}

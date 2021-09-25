@@ -1,6 +1,6 @@
 import React from "react";
 
-const CheckoutSteps = (props) => {
+export default function CheckoutSteps(props) {
   return (
     <div className="row checkout-steps">
       <div className={props.step1 ? "active" : ""}>Sign-In</div>
@@ -9,6 +9,4 @@ const CheckoutSteps = (props) => {
       <div className={props.step4 ? "active" : ""}>Place Order</div>
     </div>
   );
-};
-
-export default CheckoutSteps;
+}

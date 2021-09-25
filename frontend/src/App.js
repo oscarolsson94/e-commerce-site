@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 import { signout } from "./actions/userActions";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
@@ -18,18 +18,16 @@ function App() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
-
   const signoutHandler = () => {
     dispatch(signout());
   };
-
   return (
-    <Router>
+    <BrowserRouter>
       <div className="grid-container">
         <header className="row">
           <div>
             <Link className="brand" to="/">
-              Ecommerce
+              E-commerce
             </Link>
           </div>
           <div>
@@ -45,13 +43,15 @@ function App() {
                   {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
                 </Link>
                 <ul className="dropdown-content">
-                  <Link to="#signout" onClick={signoutHandler}>
-                    Sign Out
-                  </Link>
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
                 </ul>
               </div>
             ) : (
-              [<Link to="/signin">Sign In</Link>]
+              <Link to="/signin">Sign In</Link>
             )}
           </div>
         </header>
@@ -64,11 +64,11 @@ function App() {
           <Route path="/payment" component={PaymentMethodScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
-          <Route exact path="/" component={HomeScreen}></Route>
+          <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="row center">All rights reserved</footer>
+        <footer className="row center">All rights reserved 2021</footer>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
