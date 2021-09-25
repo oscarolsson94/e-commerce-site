@@ -1,11 +1,17 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { myOrderList } from "../actions/orderActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 export default function OrderHistoryScreen(props) {
-  const myOrderList = useSelector((state) => state.myOrderList);
-  const { loading, error, orders } = myOrderList;
+  const orderList = useSelector((state) => state.myOrderList);
+  const { loading, error, orders } = orderList;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(myOrderList());
+  }, [dispatch]);
   return (
     <div>
       <h1>Order History</h1>
