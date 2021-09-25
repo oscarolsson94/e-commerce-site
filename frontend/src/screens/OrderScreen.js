@@ -38,8 +38,8 @@ export default function OrderScreen(props) {
     }
   }, [dispatch, order, orderId, sdkReady]);
 
-  const successPaymentHandler = () => {
-    // dispatch pay order
+  const successPaymentHandler = (paymentResult) => {
+    dispatch(payOrder(order, paymentResult));
   };
 
   return loading ? (
