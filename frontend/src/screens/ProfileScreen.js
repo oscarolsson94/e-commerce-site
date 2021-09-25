@@ -1,4 +1,5 @@
 import React from "react";
+import { detailsUser } from "../actions/userActions";
 
 export default function ProfileScreen() {
   const dispatch = useDispatch();
