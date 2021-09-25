@@ -55,3 +55,11 @@ $ npm start
 
 - Run http://localhost:3000/signin
 - Enter admin email and password and click signin
+
+
+### 7. Use these credentials when making a purchase through PayPal
+
+Email ID:  
+sb-443abv7818817@personal.example.com  
+System Generated Password:  
+6Iek!>g0  
