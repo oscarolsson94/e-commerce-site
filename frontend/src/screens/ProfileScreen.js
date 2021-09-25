@@ -25,7 +25,11 @@ export default function ProfileScreen() {
   }, [dispatch, userInfo._id]);
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatch update profile
+    if (password !== confirmPassword) {
+      alert("Password and Confirm Password fields must match");
+    } else {
+      dispatch(updateUserProfile({ userId: user._id, name, email, password }));
+    }
   };
   return (
     <div>
