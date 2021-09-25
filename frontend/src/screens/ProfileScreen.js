@@ -22,7 +22,7 @@ export default function ProfileScreen() {
       setName(user.name);
       setEmail(user.email);
     }
-  }, [dispatch, userInfo._id]);
+  }, [dispatch, userInfo._id, user]);
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
