@@ -50,7 +50,7 @@ const data = {
       description: "high quality product",
     },
     {
-      name: "Nike Pant",
+      name: "Nike Pants",
       category: "Pants",
       image: "/images/p4.jpg",
       price: 78,
@@ -61,7 +61,7 @@ const data = {
       description: "high quality product",
     },
     {
-      name: "Puma Pant",
+      name: "Puma Pants",
       category: "Pants",
       image: "/images/p5.jpg",
       price: 65,
@@ -72,7 +72,7 @@ const data = {
       description: "high quality product",
     },
     {
-      name: "Adidas Pant",
+      name: "Adidas Pants",
       category: "Pants",
       image: "/images/p6.jpg",
       price: 139,
