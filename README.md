@@ -1,9 +1,9 @@
-MERN-stack E-commerce website:
+# MERN-stack E-commerce website:
 
 - HTML5 and CSS3: Semantic Elements, CSS Grid, Flexbox
 - React: Components, Props, Events, Hooks, Router, Axios
 - Redux: Store, Reducers, Actions
-- Node & Express: Web API, Body Parser, File Upload, JWT
+- Node & Express: Web API, File Upload, JWT
 - MongoDB: Mongoose, Aggregation
 - Development: ESLint, Babel, Git, Github,
 - Deployment: Heroku
@@ -46,9 +46,9 @@ $ npm start
 
 ### 5. Seed Users and Products
 
-- Run this in chrome: http://localhost:5000/api/users
+- Run this in chrome: http://localhost:5000/api/users/seed
 - It returns admin email and password
-- Run this in chrome: http://localhost:5000/api/products
+- Run this in chrome: http://localhost:5000/api/products/seed
 - It creates 6 sample products
 
 ### 6. Admin Login
