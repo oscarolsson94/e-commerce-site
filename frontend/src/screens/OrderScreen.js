@@ -1,4 +1,3 @@
-import Axios from "axios";
 import { PayPalButton } from "react-paypal-button-v2";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +6,7 @@ import { detailsOrder, payOrder } from "../actions/orderActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { ORDER_PAY_RESET } from "../constants/orderConstants";
+import { axiosInstance } from "../config";
 
 export default function OrderScreen(props) {
   const orderId = props.match.params.id;
@@ -24,7 +24,7 @@ export default function OrderScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     const addPayPalScript = async () => {
-      const { data } = await Axios.get("/api/config/paypal");
+      const { data } = await axiosInstance.get("/api/config/paypal");
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
