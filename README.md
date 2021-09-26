@@ -1,4 +1,4 @@
-MERN-stack E-commerce website:
+# MERN-stack E-commerce website:
 
 - HTML5 and CSS3: Semantic Elements, CSS Grid, Flexbox
 - React: Components, Props, Events, Hooks, Router, Axios
