@@ -46,9 +46,9 @@ $ npm start
 
 ### 5. Seed Users and Products
 
-- Run this in chrome: http://localhost:5000/api/users
+- Run this in chrome: http://localhost:5000/api/users/seed
 - It returns admin email and password
-- Run this in chrome: http://localhost:5000/api/products
+- Run this in chrome: http://localhost:5000/api/products/seed
 - It creates 6 sample products
 
 ### 6. Admin Login
